@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Not found — Inkwell</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=IBM+Plex+Sans:wght@400;500&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/style.css" />
+</head>
+<body>
+  <div class="read-progress" aria-hidden="true"></div>
+  <a class="sr-only" href="#main">Skip to content</a>
+
+  <header class="topnav">
+    <div class="topnav__inner">
+      <a href="index.html" class="topnav__logo">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2zM22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/>
+        </svg>
+        <span>Inkwell</span>
+      </a>
+      <button type="button" class="mobile-menu-toggle" data-sidebar-toggle aria-label="Open menu" aria-expanded="false">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+      </button>
+      <nav class="topnav__links" aria-label="Primary">
+        <a href="index.html">Index</a>
+        <a href="docs.html">Tomes</a>
+        <a href="#">Changelog</a>
+        <a href="#">Colophon</a>
+      </nav>
+      <div class="topnav__actions">
+        <button type="button" class="mobile-search-btn" data-search-trigger aria-label="Search documentation">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
+        </button>
+        <button class="topnav__search" data-search-trigger aria-label="Search">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
+          <span>Search</span>
+          <kbd>⌘K</kbd>
+        </button>
+        <button class="theme-toggle" aria-label="Toggle light mode" data-theme-toggle>
+          <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+          <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        </button>
+        <a href="#" class="btn btn--outline btn--sm">Sign in</a>
+        <a href="#" class="btn btn--primary btn--sm">Subscribe</a>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="error-page">
+      <div class="error-page__code">404</div>
+      <h1 class="error-page__title">A page that isn't here</h1>
+      <p class="error-page__sub">The link may be old, or the page may have been moved between editions. The index is exhaustive — the search will find it if it still exists.</p>
+      <form class="hero__search" role="search" onsubmit="event.preventDefault(); window.location.href='search.html';">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3" stroke-linecap="round"/></svg>
+        <input type="search" placeholder="Search the corpus…" aria-label="Search" />
+      </form>
+      <p style="margin-top: 2.5rem; font-family: var(--font-serif); font-style: italic; color: var(--c-text-muted);">
+        Or return to the <a href="index.html">index</a> · browse the <a href="docs.html">table of contents</a>
+      </p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="site-footer__bottom">
+      <span>© MMXXVI · Inkwell Press</span>
+      <span>Set in Newsreader, Plex Sans, Plex Mono</span>
+    </div>
+  </footer>
+
+  <div class="sidebar-backdrop" data-sidebar-close></div>
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,301 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>authentication.md — ~/docs</title>
+  <meta name="description" content="Authentication strategies for the terminal.dev API: API keys, OAuth 2.0, JWT service accounts, and SSO." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/style.css" />
+</head>
+<body>
+  <a class="sr-only" href="#main">Skip to content</a>
+
+  <header class="topnav">
+    <div class="topnav__inner">
+      <div class="topnav__crumb">
+        <a href="index.html">~</a><span class="sep">/</span>
+        <a href="docs.html">docs</a><span class="sep">/</span>
+        <a href="docs.html">guides</a><span class="sep">/</span>
+        <span>auth.md</span>
+      </div>
+      <button type="button" class="mobile-menu-toggle" data-sidebar-toggle aria-label="Open menu" aria-expanded="false">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+      </button>
+      <nav class="topnav__nav" aria-label="Primary">
+        <a href="docs.html">index</a>
+        <a href="#">api</a>
+        <a href="#">cli</a>
+        <a href="#">changelog</a>
+        <a href="#">github</a>
+      </nav>
+      <div class="topnav__right">
+        <button type="button" class="mobile-search-btn" data-search-trigger aria-label="Search documentation">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
+        </button>
+        <div class="topnav__search" role="search">
+          <span class="prompt">$</span>
+          <input type="search" placeholder="search docs..." aria-label="Search" />
+          <button type="button" class="topnav__search-cmdk" data-search-trigger aria-label="Open command palette">
+            <kbd>⌘K</kbd>
+          </button>
+        </div>
+        <div class="topnav__status">
+          <span class="topnav__status-dot">build: passing</span>
+          <span>v2.4.0</span>
+        </div>
+        <button class="theme-toggle" aria-label="Toggle light mode" data-theme-toggle>
+          <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+          <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+    <div class="article-layout">
+      <aside class="article-side" id="doc-sidebar" aria-label="File tree">
+        <div class="article-side__title">// file tree</div>
+        <div class="tree">
+          <div class="tree__group">
+            <div class="tree__group-label">~/docs/</div>
+            <a class="tree__item tree__file" href="index.html"><span class="tree__icon"></span><span>README.md</span></a>
+            <a class="tree__item tree__file" href="docs.html"><span class="tree__icon"></span><span>index.md</span></a>
+          </div>
+          <div class="tree__group">
+            <div class="tree__group-label">getting-started/</div>
+            <a class="tree__item tree__file" href="article.html"><span class="tree__icon"></span><span>01.quickstart.md</span></a>
+            <a class="tree__item tree__file" href="article.html"><span class="tree__icon"></span><span>02.install.md</span></a>
+            <a class="tree__item tree__file" href="article.html"><span class="tree__icon"></span><span>03.concepts.md</span></a>
+          </div>
+          <div class="tree__group">
+            <div class="tree__group-label">guides/</div>
+            <a class="tree__item tree__file" href="article.html"><span class="tree__icon"></span><span>auth.md</span></a>
+            <a class="tree__item tree__file" href="article.html"><span class="tree__icon"></span><span>webhooks.md</span></a>
+            <a class="tree__item tree__file" href="article.html"><span class="tree__icon"></span><span>pagination.md</span></a>
+            <a class="tree__item tree__file" href="article.html"><span class="tree__icon"></span><span>errors.md</span></a>
+            <a class="tree__item tree__file" href="article.html"><span class="tree__icon"></span><span>idempotency.md</span></a>
+          </div>
+          <div class="tree__group">
+            <div class="tree__group-label">reference/</div>
+            <a class="tree__item tree__file" href="article.html"><span class="tree__icon"></span><span>api.md</span></a>
+            <a class="tree__item tree__file" href="article.html"><span class="tree__icon"></span><span>cli.md</span></a>
+            <a class="tree__item tree__file" href="article.html"><span class="tree__icon"></span><span>sdks.md</span></a>
+          </div>
+          <div class="tree__group">
+            <div class="tree__group-label">operations/</div>
+            <a class="tree__item tree__file" href="article.html"><span class="tree__icon"></span><span>rate-limits.md</span></a>
+            <a class="tree__item tree__file" href="article.html"><span class="tree__icon"></span><span>observability.md</span></a>
+            <a class="tree__item tree__file" href="article.html"><span class="tree__icon"></span><span>compliance.md</span></a>
+          </div>
+        </div>
+      </aside>
+
+      <article class="article-main">
+        <div class="article-path">
+          <span class="dir">~/docs/guides/</span><span class="file">auth.md</span>
+          <span class="comment">// last commit 3 days ago · authored by @docs-team</span>
+        </div>
+        <header class="article-header">
+          <div class="article-header__hash">commit <span class="hash">a3f29b1</span> · 247 insertions · 84 deletions</div>
+          <h1>authentication</h1>
+          <p class="article-header__sub">Four strategies for talking to the API. Each is a fit for a particular shape of work — none of them is a default.</p>
+          <div class="article-header__meta">
+            <span><strong>read time:</strong> 15 min</span>
+            <span><strong>updated:</strong> 3 days ago</span>
+            <span><strong>tests:</strong> <span class="ok">47/47 passing</span></span>
+            <span><strong>api stability:</strong> stable</span>
+          </div>
+        </header>
+
+        <div class="prose">
+          <p>The first question is rarely "which method?" — it is "what is this code on behalf of whom?" A script in your CI is a different animal from a button in someone else's browser, and the answer changes everything that follows. The four methods below are not rungs on a ladder; they are four tools, each shaped to a particular hand.</p>
+
+          <div class="callout callout--note">
+            <span class="callout__icon">[i]</span>
+            <div class="callout__body">
+              <div class="callout__label">// note</div>
+              <p>Pick the smallest scope that works. Never use a master key in client-side code or shared scripts. Create a scoped key per integration and rotate it on a schedule.</p>
+            </div>
+          </div>
+
+          <h2 id="api-keys">api keys</h2>
+          <p>The fastest path. Generate a key in the dashboard, send it as a bearer token, and you're authenticated. Best for server-to-server and CI jobs.</p>
+
+          <div class="codeblock">
+            <div class="codeblock__header">
+              <span class="codeblock__dots"><span></span><span></span><span></span></span>
+              <span class="codeblock__file"><span class="path">~/projects/lumen/</span><span class="name">list.sh</span></span>
+              <button class="codeblock__copy">copy</button>
+            </div>
+            <pre><code><span class="tk-com"># list all projects in the workspace</span>
+<span class="tk-key">curl</span> https://api.terminal.dev/v1/projects \
+  <span class="tk-key">-H</span> <span class="tk-str">"Authorization: Bearer sk_live_your_api_key_here"</span> \
+  <span class="tk-key">-H</span> <span class="tk-str">"Content-Type: application/json"</span></code></pre>
+          </div>
+
+          <p>Keys are prefixed so you can spot them in logs: <code>sk_live_…</code> for production, <code>sk_test_…</code> for the sandbox. The two prefixes are never interchangeable, which keeps test data isolated even by accident.</p>
+
+          <h3>rotating keys</h3>
+          <p>You can have up to 10 active keys per workspace. To rotate without downtime, create the new key first, deploy code that uses both, then revoke the old one. The platform supports a 24-hour overlap window during which both keys resolve to the same principal.</p>
+
+          <h2 id="oauth">oauth 2.0</h2>
+          <p>When you need to act <em>on behalf of a user</em> — for example, building a third-party app that connects to a user's workspace — use OAuth 2.0 with PKCE. We support the authorization code flow and the device flow for input-constrained clients.</p>
+
+          <div class="codeblock codeblock--numbered">
+            <div class="codeblock__header">
+              <span class="codeblock__dots"><span></span><span></span><span></span></span>
+              <span class="codeblock__file"><span class="path">~/projects/example/</span><span class="name">oauth.js</span></span>
+              <button class="codeblock__copy">copy</button>
+            </div>
+            <pre><code><span class="line"><span class="tk-key">import</span> { Terminal } <span class="tk-key">from</span> <span class="tk-str">'@terminal/sdk'</span>;</span><span class="line"></span><span class="line is-highlight"><span class="tk-key">const</span> <span class="tk-var">token</span> = <span class="tk-key">await</span> <span class="tk-var">terminal</span>.<span class="tk-var">oauth</span>.<span class="tk-fn">exchange</span>({</span><span class="line">  <span class="tk-var">grant_type</span>: <span class="tk-str">'authorization_code'</span>,</span><span class="line">  <span class="tk-var">code</span>: <span class="tk-str">'auth_code_here'</span>,</span><span class="line">  <span class="tk-var">redirect_uri</span>: <span class="tk-str">'https://yourapp.com/callback'</span>,</span><span class="line">  <span class="tk-var">code_verifier</span>: <span class="tk-var">storedVerifier</span>,</span><span class="line">});</span><span class="line"></span><span class="line"><span class="tk-var">console</span>.<span class="tk-fn">log</span>(<span class="tk-var">token</span>.<span class="tk-var">access_token</span>);</span><span class="line"><span class="tk-com">// → "ya29.a0AfH6SMB..."</span></span></code></pre>
+          </div>
+
+          <h3>required scopes</h3>
+          <p>Request only the scopes you need. The user will see exactly which permissions your app is asking for. You can request additional scopes later via the incremental authorization flow — no need to re-consent to everything.</p>
+
+          <table style="width: 100%; border-collapse: collapse; font-size: 12.5px; margin: 1.5em 0;">
+            <thead>
+              <tr style="background: var(--c-bg-soft);">
+                <th style="text-align: left; padding: .5em .75em; border-bottom: 1px solid var(--c-border); color: var(--c-text);">scope</th>
+                <th style="text-align: left; padding: .5em .75em; border-bottom: 1px solid var(--c-border); color: var(--c-text);">allows</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td style="padding: .5em .75em; border-bottom: 1px solid var(--c-border);"><code>read:projects</code></td><td style="padding: .5em .75em; border-bottom: 1px solid var(--c-border); color: var(--c-text-soft);">List and read project metadata</td></tr>
+              <tr><td style="padding: .5em .75em; border-bottom: 1px solid var(--c-border);"><code>write:projects</code></td><td style="padding: .5em .75em; border-bottom: 1px solid var(--c-border); color: var(--c-text-soft);">Create, update, archive projects</td></tr>
+              <tr><td style="padding: .5em .75em; border-bottom: 1px solid var(--c-border);"><code>read:events</code></td><td style="padding: .5em .75em; border-bottom: 1px solid var(--c-border); color: var(--c-text-soft);">Subscribe to webhook topics</td></tr>
+              <tr><td style="padding: .5em .75em; border-bottom: 1px solid var(--c-border);"><code>manage:team</code></td><td style="padding: .5em .75em; border-bottom: 1px solid var(--c-border); color: var(--c-text-soft);">Invite users, change roles</td></tr>
+            </tbody>
+          </table>
+
+          <h2 id="jwt">service accounts with jwt</h2>
+          <p>For long-lived server workloads that need to assume a specific identity — scheduled jobs, event-driven workers, data pipelines — issue a short-lived JWT signed with a service account's private key. Tokens are valid for up to 1 hour and refresh automatically.</p>
+
+          <div class="callout callout--warn">
+            <span class="callout__icon">[!]</span>
+            <div class="callout__body">
+              <div class="callout__label">// warning</div>
+              <p>Keep your private key out of the repo. Load the signing key from your secrets manager at boot. If a private key is ever committed, revoke the service account immediately — the platform will detect and alert on any new JWTs signed with the leaked key.</p>
+            </div>
+          </div>
+
+          <h2 id="sso">single sign-on (sso)</h2>
+          <p>Enterprise workspaces can enforce SSO with any SAML 2.0 or OIDC provider — Okta, Azure AD, Google Workspace, OneLogin, and others. When SSO is enforced, personal API keys and passwords are disabled for the workspace.</p>
+          <p>Configuration lives in <strong>Workspace settings → Authentication → SSO</strong>. You'll need workspace admin permissions to make changes. After enabling, the first 24 hours are a soft-enforcement window where users can still fall back to other methods — useful for migration.</p>
+
+          <h3>just-in-time provisioning</h3>
+          <p>Pair SSO with SCIM to provision users automatically. New users appear in your workspace the first time they sign in. Roles are mapped from your IdP's group membership.</p>
+
+          <h2 id="best-practices">best practices</h2>
+          <ul>
+            <li><strong>Use the smallest scope.</strong> Read-only keys for analytics, write keys for automation, admin keys only for break-glass.</li>
+            <li><strong>Rotate on a schedule.</strong> Every 90 days for human-owned keys, every 30 days for CI keys.</li>
+            <li><strong>Audit regularly.</strong> The <a href="#">Key activity</a> view shows every call a key has made in the last 90 days.</li>
+            <li><strong>Never put a key in client code.</strong> Use a server-side proxy for browser or mobile apps.</li>
+            <li><strong>Fail closed on expiry.</strong> Treat 401 as a hard stop, not a retry.</li>
+          </ul>
+
+          <div class="callout callout--tip">
+            <span class="callout__icon">[+]</span>
+            <div class="callout__body">
+              <div class="callout__label">// tip</div>
+              <p>Use <code>sk_test_…</code> keys against <code>https://api.sandbox.terminal.dev</code> to test your integration without touching production data. The sandbox is reset nightly and isolated from your live workspace.</p>
+            </div>
+          </div>
+
+          <h2 id="troubleshooting">troubleshooting</h2>
+          <p>Most auth failures fall into three buckets:</p>
+          <ol>
+            <li><strong>401 Unauthorized</strong> — the token is missing, malformed, or revoked.</li>
+            <li><strong>403 Forbidden</strong> — the token is valid but doesn't have the scope for this resource.</li>
+            <li><strong>429 Too Many Requests</strong> — you're being rate-limited. Respect the <code>Retry-After</code> header.</li>
+          </ol>
+          <p>For anything else, the <a href="#">auth debug endpoint</a> returns a structured trace of the failed request.</p>
+        </div>
+
+        <nav class="article-footnav" aria-label="Page navigation">
+          <a href="article.html">
+            <span class="article-footnav__label">← prev</span>
+            <span class="article-footnav__path">guides/</span>
+            <span>03.concepts.md</span>
+          </a>
+          <a href="article.html" class="next">
+            <span class="article-footnav__label">next →</span>
+            <span class="article-footnav__path">guides/</span>
+            <span>webhooks.md</span>
+          </a>
+        </nav>
+      </article>
+
+      <aside class="toc-rail" aria-label="On this page">
+        <h4>// on this page</h4>
+        <ul>
+          <li><a href="#api-keys"><span class="toc-line">01</span>api keys</a></li>
+          <li><a href="#oauth"><span class="toc-line">02</span>oauth 2.0</a>
+            <ul class="toc-sub">
+              <li><a href="#"><span class="toc-line">·</span>required scopes</a></li>
+            </ul>
+          </li>
+          <li><a href="#jwt"><span class="toc-line">03</span>service accounts (jwt)</a></li>
+          <li><a href="#sso"><span class="toc-line">04</span>single sign-on (sso)</a>
+            <ul class="toc-sub">
+              <li><a href="#"><span class="toc-line">·</span>just-in-time provisioning</a></li>
+            </ul>
+          </li>
+          <li><a href="#best-practices"><span class="toc-line">05</span>best practices</a></li>
+          <li><a href="#troubleshooting"><span class="toc-line">06</span>troubleshooting</a></li>
+        </ul>
+      </aside>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="site-footer__inner">
+      <div>// © 2026 · terminal.dev · MIT licensed</div>
+      <div class="site-footer__links">
+        <a href="index.html">home</a>
+        <a href="docs.html">index</a>
+        <a href="#">edit on github</a>
+      </div>
+    </div>
+  </footer>
+
+  <div class="cmdk" role="dialog" aria-modal="true" aria-label="Command palette" aria-hidden="true">
+    <div class="cmdk__panel">
+      <div class="cmdk__input">
+        <span class="prompt">&gt;</span>
+        <input type="text" placeholder="search docs, jump to a page, run a command..." aria-label="Command" />
+        <kbd>esc</kbd>
+      </div>
+      <div class="cmdk__results">
+        <a href="article.html" class="cmdk__result">
+          <span class="cmdk__result-icon">→</span>
+          <div class="cmdk__result-main"><strong>api-keys.md</strong><span>#api-keys · the basics</span></div>
+          <span class="cmdk__result-meta">5 min</span>
+        </a>
+        <a href="article.html" class="cmdk__result">
+          <span class="cmdk__result-icon">→</span>
+          <div class="cmdk__result-main"><strong>oauth.md</strong><span>#oauth · for third-party apps</span></div>
+          <span class="cmdk__result-meta">10 min</span>
+        </a>
+        <a href="article.html" class="cmdk__result">
+          <span class="cmdk__result-icon">→</span>
+          <div class="cmdk__result-main"><strong>sso.md</strong><span>#sso · for enterprise</span></div>
+          <span class="cmdk__result-meta">12 min</span>
+        </a>
+      </div>
+      <div class="cmdk__hint">
+        <span><kbd>↑↓</kbd> navigate</span>
+        <span><kbd>↵</kbd> open</span>
+        <span><kbd>esc</kbd> close</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="sidebar-backdrop" data-sidebar-close></div>
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

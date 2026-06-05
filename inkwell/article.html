@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Authentication, considered — Inkwell</title>
+  <meta name="description" content="An essay on choosing the right authentication strategy, and the small habits that make it safer." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=IBM+Plex+Sans:wght@400;500&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/style.css" />
+</head>
+<body>
+  <div class="read-progress" aria-hidden="true"></div>
+  <a class="sr-only" href="#main">Skip to content</a>
+
+  <header class="topnav">
+    <div class="topnav__inner">
+      <a href="index.html" class="topnav__logo">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2zM22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/>
+        </svg>
+        <span>Inkwell</span>
+      </a>
+      <button type="button" class="mobile-menu-toggle" data-sidebar-toggle aria-label="Open menu" aria-expanded="false">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+      </button>
+      <nav class="topnav__links" aria-label="Primary">
+        <a href="index.html">Index</a>
+        <a href="docs.html" class="is-active">Tomes</a>
+        <a href="#">Changelog</a>
+        <a href="#">Colophon</a>
+      </nav>
+      <div class="topnav__actions">
+        <button type="button" class="mobile-search-btn" data-search-trigger aria-label="Search documentation">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
+        </button>
+        <button class="topnav__search" data-search-trigger aria-label="Search">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
+          <span>Search</span>
+          <kbd>⌘K</kbd>
+        </button>
+        <button class="theme-toggle" aria-label="Toggle light mode" data-theme-toggle>
+          <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+          <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        </button>
+        <a href="#" class="btn btn--outline btn--sm">Sign in</a>
+        <a href="#" class="btn btn--primary btn--sm">Subscribe</a>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+    <div class="article-layout">
+      <article class="article-main">
+        <div class="article-meta">
+          <span>Essay No. 014</span>
+          <span class="article-meta-dot"></span>
+          <span>Chapter II</span>
+          <span class="article-meta-dot"></span>
+          <span>15 min read</span>
+        </div>
+        <h1 class="article-title">Authentication, considered</h1>
+        <p class="article-dek">Choosing the right strategy is a quiet act of care. The four methods below are not interchangeable — each is a fit for a particular shape of work.</p>
+        <div class="article-byline">
+          <span>Written by <strong>the editors</strong></span>
+          <span class="article-meta-dot"></span>
+          <span>First published 14 March 2026</span>
+          <span class="article-meta-dot"></span>
+          <span>Last revised 2 days ago</span>
+        </div>
+
+        <div class="prose">
+          <p>The first question to ask about authentication is rarely "which method?" — it is "what is this code on behalf of whom?" A script that runs in your CI system is a different animal from a button in someone else's browser, and the answer changes everything that follows. The four methods in this essay — API keys, OAuth 2.0, signed JWT, and single sign-on — are not rungs on a ladder. They are four tools, each shaped to a particular hand.</p>
+
+          <p>What follows is a long, deliberate walk through when to use which, and the small habits that make each one safer to live with. We will not assume you have read the quickstart; we will not assume you haven't. We will simply go slowly, and trust you to read at the speed that suits you.</p>
+
+          <h2 id="api-keys">Of API keys</h2>
+          <p>The API key is the oldest, simplest method we support, and the one most often misused. It is a bearer token: whoever holds it is, in our system's eyes, the principal that issued it. This is convenient and dangerous in equal measure, and the entire art of using keys well is the art of narrowing who can hold them.</p>
+
+          <div class="codeblock">
+            <div class="codeblock__header">
+              <span>curl — make your first authenticated request</span>
+              <button class="codeblock__copy">Copy</button>
+            </div>
+            <pre><code>curl https://api.inkwell.dev/v1/projects \
+  -H "Authorization: Bearer sk_live_your_api_key_here" \
+  -H "Content-Type: application/json"</code></pre>
+          </div>
+
+          <p>Two habits, in particular, will save you. The first is to give every key a name and a scope, so that when a key is found in a log file you can tell at a glance what it is for. The second is to rotate them. Not because keys are fragile, but because keys <em>leak</em>. A key that has been in a single place for two years is a key that has been copy-pasted, screenshotted, or set as a default somewhere. Rotate them the way you would change the locks on a house you actually live in.</p>
+
+          <h3>Rotation, without downtime</h3>
+          <p>You can have up to ten active keys per workspace, and during a rotation both keys resolve to the same principal for a window of twenty-four hours. This is the small gift that makes zero-downtime rotation possible: create the new key, deploy code that uses both, revoke the old one. The brief overlap is the seam, and it is a seam you can plan around.</p>
+
+          <h2 id="oauth">On acting on behalf of a user</h2>
+          <p>When your code needs to do something in a user's workspace — read their projects, send a message on their behalf, list their team's billing history — the API key will not do. The key is for <em>you</em>; the user is, at this moment, a different principal. The protocol we use to bridge this is OAuth 2.0, with PKCE for the public clients that need it.</p>
+
+          <blockquote>
+            <p>"The user must always be able to see exactly which permissions you are asking for, and revoke them in a single click."</p>
+            <cite>— A principle from the first edition, still binding.</cite>
+          </blockquote>
+
+          <p>The grant types we support — authorization code, device, and refresh — are each suited to a different shape of client. A server-side web app uses the authorization code flow. A CLI tool installed on someone's laptop uses the device flow. A long-running integration uses the refresh flow to swap a short-lived access token for a new one, invisibly.</p>
+
+          <h3>The smallest scope that works</h3>
+          <p>When you ask for scopes, ask for the smallest set that lets you do the work in front of you. The user will see exactly which permissions you are requesting; if the list is long and unfamiliar, they will say no, and they will be right to. You can always ask for more later, in a follow-up consent flow. The reverse is not true.</p>
+
+          <div class="sidenote">
+            <span class="sidenote__icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2L2 22h20L12 2z"/><path d="M12 9v4M12 17h.01"/></svg>
+            </span>
+            <div class="sidenote__body">
+              <span class="sidenote__label">A field note</span>
+              <p>Two-thirds of the support tickets we receive about authentication turn out to be the same problem: a developer requested a scope they didn't need, then tried to use it on a route whose required scope was different. The error message is identical in both cases. Read the route's <code>required_scopes</code> first.</p>
+            </div>
+          </div>
+
+          <h2 id="jwt">Service accounts and the signed JWT</h2>
+          <p>For workloads that need to assume a stable, long-lived identity — scheduled jobs, event-driven workers, nightly pipelines — the signed JWT is the right tool. A short-lived token, signed by a private key you hold, presented on every request. The window of exposure is at most one hour; the key never leaves your infrastructure.</p>
+
+          <p class="pullquote">A service account is not a user. It has no password, no inbox, no browser. It has a key, a name, and a purpose. Treat it accordingly.</p>
+
+          <p>The habits here are slightly different. A service account's private key should live in a secrets manager, not in the repository. It should be loaded at boot, not interpolated at request time. And it should be rotated, not by replacing the key in place, but by issuing a new account, migrating the workload, and retiring the old one. The discontinuity is a feature: it forces you to know what depends on the identity, and to migrate deliberately.</p>
+
+          <h2 id="sso">Single sign-on, in the enterprise</h2>
+          <p>For workspaces of any size, single sign-on is not a luxury. It is the only way to be sure that the person in the chair is the person you think they are, and that the right person has been told, in your identity provider, that they have the right to be there. We support SAML 2.0 and OIDC; the choice between them is usually driven by what your IdP supports, not by what we prefer.</p>
+
+          <p>When SSO is enforced, personal API keys and passwords are disabled for the workspace. This is the point of the enforcement. The first twenty-four hours are a soft window — a period in which users can fall back to other methods, and your team can find the integrations that depended on them. After that, the windows are closed. Plan the migration accordingly.</p>
+
+          <h3>Just-in-time provisioning</h3>
+          <p>Pair SSO with SCIM, and new users will appear in your workspace the first time they sign in. Their roles are mapped from group membership in your IdP. Off-boarding becomes a single action: remove them from the group, and the next time our SCIM endpoint asks, they are gone. This is the quietest, most reliable kind of off-boarding there is.</p>
+
+          <h2 id="habits">Small habits</h2>
+          <p>We end where we began, with the question of care. The four methods above are not difficult to use. They are, however, easy to use badly — to leave a key in a place it should not be, to grant a scope broader than the work requires, to skip rotation because the calendar is full. The habits that prevent this are unglamorous: a quarterly review of every active key, an audit log of who used what, a small ritual of rotation.</p>
+
+          <ul>
+            <li>Read the route's <code>required_scopes</code> before you write the code that calls it.</li>
+            <li>Treat the API key as you would treat a passport: a thing that identifies a principal, to be shown and not left on a counter.</li>
+            <li>For service accounts, prefer rotation by replacement over rotation in place. The discontinuity is the point.</li>
+            <li>When you set up SSO, set up SCIM at the same time. They are half of one thing.</li>
+            <li>Audit, on a schedule you will actually keep.</li>
+          </ul>
+
+          <p>None of this is interesting. All of it is necessary. And the difference between a workspace that is easy to live with and one that is a chronic source of small panics is, more often than not, the cumulative weight of these habits.</p>
+        </div>
+      </article>
+
+      <aside class="toc-rail" aria-label="In this essay">
+        <h4>In this essay</h4>
+        <ul>
+          <li><a href="#api-keys">Of API keys</a>
+            <ul class="toc-sub">
+              <li><a href="#">Rotation, without downtime</a></li>
+            </ul>
+          </li>
+          <li><a href="#oauth">On acting on behalf of a user</a>
+            <ul class="toc-sub">
+              <li><a href="#">The smallest scope that works</a></li>
+            </ul>
+          </li>
+          <li><a href="#jwt">Service accounts and the signed JWT</a></li>
+          <li><a href="#sso">Single sign-on, in the enterprise</a>
+            <ul class="toc-sub">
+              <li><a href="#">Just-in-time provisioning</a></li>
+            </ul>
+          </li>
+          <li><a href="#habits">Small habits</a></li>
+        </ul>
+      </aside>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="site-footer__bottom">
+      <span>© MMXXVI · Inkwell Press</span>
+      <span>Set in Newsreader, Plex Sans, Plex Mono</span>
+    </div>
+  </footer>
+
+  <div class="sidebar-backdrop" data-sidebar-close></div>
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

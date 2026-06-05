@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Search — Cumulus Documentation</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/style.css" />
+</head>
+<body>
+  <a class="sr-only" href="#main">Skip to content</a>
+
+  <div class="utilitybar">
+    <div class="utilitybar__inner">
+      <a href="index.html" class="utilitybar__brand">
+        <span class="b-c">C</span><span class="b-o">u</span><span class="b-m">m</span><span class="b-u">u</span><span class="b-l">l</span><span class="b-u2">u</span><span class="b-s">s</span>
+      </a>
+      <button type="button" class="mobile-menu-toggle" data-sidebar-toggle aria-label="Open menu" aria-expanded="false">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+      </button>
+      <nav class="utilitybar__nav">
+        <a href="#" class="is-active">Technology areas <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg></a>
+        <a href="#">Cross-product tools <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg></a>
+      </nav>
+      <div class="utilitybar__right">
+        <button type="button" class="mobile-search-btn" data-search-trigger aria-label="Search documentation">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
+        </button>
+        <div class="utilitybar__search" data-search-trigger role="search">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
+          <input type="search" placeholder="Search" />
+          <kbd>/</kbd>
+        </div>
+        <button type="button" class="utilitybar__icon-btn" aria-label="Open Cloud Shell"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="4 17 10 11 4 5"/><line x1="12" y1="19" x2="20" y2="19"/></svg><span>Shell</span></button>
+        <button type="button" class="utilitybar__icon-btn" aria-label="Change language" disabled><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15 15 0 0 1 0 20M12 2a15 15 0 0 0 0 20"/></svg><span>English</span></button>
+        <a href="#" class="utilitybar__icon-btn"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 3v18M3 9h18"/></svg><span>Console</span></a>
+        <button class="theme-toggle" aria-label="Toggle dark mode" data-theme-toggle>
+          <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+          <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        </button>
+        <span class="utilitybar__avatar"></span>
+      </div>
+    </div>
+  </div>
+
+  <main id="main">
+    <div class="search-page">
+      <h1>Search results</h1>
+      <div class="search-bar">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
+        <input type="search" value="webhook" aria-label="Search" />
+        <kbd>esc</kbd>
+      </div>
+      <p class="search-meta">14 results for <strong>"webhook"</strong> · 0.04s</p>
+
+      <a href="article.html" class="search-result">
+        <div class="search-result__cat">Guides · Cloud Run</div>
+        <h3 class="search-result__title">Receive events with webhooks on Cloud Run</h3>
+        <p class="search-result__excerpt">…<mark>webhook</mark>s are the recommended way to react to events on Cumulus. This guide covers signing, retries, replay, and the truth about delivery order…</p>
+      </a>
+      <a href="article.html" class="search-result">
+        <div class="search-result__cat">REST API</div>
+        <h3 class="search-result__title">POST /v1/webhooks</h3>
+        <p class="search-result__excerpt">…create a <mark>webhook</mark> subscription. The endpoint requires the <code>write:events</code> scope and accepts a JSON body with a target URL, a list of event topics…</p>
+      </a>
+      <a href="article.html" class="search-result">
+        <div class="search-result__cat">Guides · Pub/Sub</div>
+        <h3 class="search-result__title">Verifying webhook signatures</h3>
+        <p class="search-result__excerpt">…every <mark>webhook</mark> delivery is signed with an HMAC-SHA256 of the timestamp and the request body. The signature is sent in the <code>Cumulus-Signature</code> header…</p>
+      </a>
+      <a href="article.html" class="search-result">
+        <div class="search-result__cat">Tutorials</div>
+        <h3 class="search-result__title">Build a real-time notification system with webhooks</h3>
+        <p class="search-result__excerpt">…in this tutorial, you'll wire up a <mark>webhook</mark> endpoint on Cloud Run that pushes events into Pub/Sub, with deduplication, retry handling, and end-to-end tracing…</p>
+      </a>
+      <a href="article.html" class="search-result">
+        <div class="search-result__cat">Operations</div>
+        <h3 class="search-result__title">Webhook delivery SLAs and failure modes</h3>
+        <p class="search-result__excerpt">…Cumulus guarantees at-least-once delivery for <mark>webhook</mark> events. Your endpoint must be idempotent. We'll show you how to detect duplicates and what to do when…</p>
+      </a>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="site-footer__bottom">
+      <span>About Cumulus · Privacy · Site terms · Cumulus terms</span>
+    </div>
+  </footer>
+
+  <div class="sidebar-backdrop" data-sidebar-close></div>
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Voyager — Documentation, executable</title>
+  <meta name="description" content="Voyager is a split-pane documentation reader. The doc on the left, a live playground on the right, and the two stay in sync as you read." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/style.css" />
+</head>
+<body>
+  <a class="sr-only" href="#main">Skip to content</a>
+
+  <div class="statusbar">
+    <div class="statusbar__brand">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><path d="M12 2a15 15 0 0 1 0 20M12 2a15 15 0 0 0 0 20M2 12h20"/></svg>
+      <span>voyager</span>
+    </div>
+    <span class="statusbar__divider"></span>
+    <div class="statusbar__group">
+      <a href="index.html" class="statusbar__item is-active">main</a>
+      <a href="docs.html" class="statusbar__item">guides</a>
+      <a href="#" class="statusbar__item">api</a>
+      <a href="#" class="statusbar__item">cli</a>
+      <a href="#" class="statusbar__item">changelog</a>
+    </div>
+    <div class="statusbar__right">
+      <button type="button" class="mobile-menu-toggle" data-sidebar-toggle aria-label="Open menu" aria-expanded="false">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+      </button>
+      <button type="button" class="mobile-search-btn" data-search-trigger aria-label="Search documentation">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
+      </button>
+      <span class="statusbar__item"><span class="statusbar__dot"></span> build: passing</span>
+      <span class="statusbar__item">v2.4.0</span>
+      <button class="theme-toggle" aria-label="Toggle light mode" data-theme-toggle>
+        <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+        <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      </button>
+    </div>
+  </div>
+
+  <div class="voyager">
+    <nav class="rail" id="doc-sidebar" aria-label="Primary">
+      <a href="index.html" class="rail__btn is-active" aria-label="Home">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+      </a>
+      <a href="docs.html" class="rail__btn" aria-label="Documentation">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+      </a>
+      <a href="#" class="rail__btn" aria-label="API reference">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+      </a>
+      <a href="search.html" class="rail__btn" aria-label="Search">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
+      </a>
+      <span class="rail__spacer"></span>
+      <button type="button" class="rail__btn" aria-label="Toggle theme" disabled><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg></button>
+    </nav>
+
+    <main class="doc" id="main">
+      <article class="landing-doc">
+        <h1>Documentation, <span class="landing-doc__accent">executable</span>.</h1>
+        <p class="landing-doc__sub">Voyager is a split-pane documentation reader. The doc on the left. A live playground on the right. The two stay in sync as you read — scroll the article and the corresponding code loads in the playground. Click <em>↗ Run</em> on any snippet to execute it without leaving the page.</p>
+
+        <h2 class="landing-section-title">How it works</h2>
+
+        <div class="landing-grid">
+          <div class="landing-card">
+            <div class="landing-card__icon landing-card__icon--link">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+            </div>
+            <h3>Read &amp; run</h3>
+            <p>Every code example in the doc is a runnable snippet. Click <em>↗ Run</em> to load it into the playground and execute it.</p>
+          </div>
+          <div class="landing-card">
+            <div class="landing-card__icon landing-card__icon--purple">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/></svg>
+            </div>
+            <h3>In sync</h3>
+            <p>As you scroll the article, the matching snippet in the playground stays active. The two panels breathe together.</p>
+          </div>
+          <div class="landing-card">
+            <div class="landing-card__icon landing-card__icon--success">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+            </div>
+            <h3>No more guesswork</h3>
+            <p>No more "the code in this article is illustrative." What you read is what you run.</p>
+          </div>
+        </div>
+
+        <h2 class="landing-section-title">Open the example</h2>
+        <p>See it in action. <a href="article.html">Open <strong>Authentication, considered</strong> →</a> and try the playground. Or browse the <a href="docs.html">full guide index</a>.</p>
+      </article>
+    </main>
+
+    <aside class="playground" aria-label="Playground">
+      <div class="pg__header">
+        <div class="pg__tabs">
+          <button type="button" class="pg__tab is-active" aria-selected="true">node</button>
+          <button type="button" class="pg__tab" aria-selected="false">python</button>
+          <button type="button" class="pg__tab" aria-selected="false">curl</button>
+        </div>
+        <div class="pg__lang">
+          <select>
+            <option>javascript</option>
+            <option>python</option>
+            <option>bash</option>
+            <option>curl</option>
+          </select>
+        </div>
+      </div>
+      <div class="pg__body">
+        <div class="pg__editor" contenteditable="true" role="textbox" aria-label="Code playground editor" aria-multiline="true" spellcheck="false" data-prompt="$" data-placeholder="// pick an example to run, or write your own">// pick an example to run, or write your own
+// click any code block in the doc to load it here</div>
+        <div class="pg__output"></div>
+      </div>
+      <div class="pg__footer">
+        <span>↩ Run with ⌘↵</span>
+        <button type="button" class="pg__clear">Clear</button>
+        <button type="button" class="pg__run" aria-label="Run code">
+          <svg viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+          Run
+        </button>
+      </div>
+    </aside>
+  </div>
+
+  <div class="sidebar-backdrop" data-sidebar-close></div>
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

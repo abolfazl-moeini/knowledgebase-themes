@@ -1,0 +1,212 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Lumen Docs — Modern documentation for modern teams</title>
+  <meta name="description" content="A clean, modern documentation theme built for SaaS and API products. Searchable, fast, beautifully written." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/style.css" />
+</head>
+<body>
+  <a class="sr-only" href="#main">Skip to content</a>
+
+  <header class="topnav">
+    <div class="topnav__inner">
+      <a href="index.html" class="topnav__logo">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <defs>
+            <linearGradient id="lumen-mark" x1="0" y1="0" x2="24" y2="24">
+              <stop offset="0" stop-color="#4F46E5"/>
+              <stop offset="1" stop-color="#7C3AED"/>
+            </linearGradient>
+          </defs>
+          <circle cx="12" cy="12" r="10" fill="url(#lumen-mark)"/>
+          <circle cx="12" cy="12" r="3.5" fill="#fff" opacity=".95"/>
+        </svg>
+        <span class="topnav__brand">Lumen</span>
+      </a>
+      <button type="button" class="mobile-menu-toggle" data-sidebar-toggle aria-label="Open menu" aria-expanded="false">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+      </button>
+      <nav class="topnav__links" aria-label="Primary">
+        <a href="docs.html">Docs</a>
+        <a href="#">API</a>
+        <a href="#">Changelog</a>
+        <a href="#">Blog</a>
+        <a href="#">Community</a>
+      </nav>
+      <div class="topnav__actions">
+        <button type="button" class="mobile-search-btn" data-search-trigger aria-label="Search documentation">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
+        </button>
+        <button class="search-trigger" data-search-trigger aria-label="Search docs">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
+          <span>Search docs</span>
+          <kbd>⌘K</kbd>
+        </button>
+        <button class="theme-toggle" aria-label="Toggle dark mode" data-theme-toggle>
+          <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+          <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        </button>
+        <a href="#" class="btn btn--ghost btn--sm">Sign in</a>
+        <a href="#" class="btn btn--primary btn--sm">Get started</a>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero">
+      <div class="hero__inner">
+        <span class="hero__badge">v2.4 · Multi-region deployment, role-based access</span>
+        <h1 class="hero__title">Documentation that gets<br/><em>out of your way.</em></h1>
+        <p class="hero__sub">A clean, modern reference for your product — searchable, fast, and beautifully written. Built for teams that care about clarity over cleverness.</p>
+        <form class="hero__search" role="search" onsubmit="event.preventDefault(); window.location.href='search.html';">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3" stroke-linecap="round"/></svg>
+          <input type="search" placeholder="Search guides, API, tutorials…" aria-label="Search" />
+          <kbd>↵</kbd>
+        </form>
+        <div class="hero__suggestions">
+          <span>Popular:</span>
+          <a href="article.html">Quickstart</a>
+          <a href="article.html">Authentication</a>
+          <a href="article.html">Webhooks</a>
+          <a href="article.html">Rate limits</a>
+          <a href="article.html">SSO setup</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="features">
+      <div class="container">
+        <h2 class="section-title">Everything you need, nothing you don't</h2>
+        <p class="section-sub">Six clear sections, searchable from anywhere. No marketing fluff, no nested dropdowns, no "let's circle back".</p>
+        <div class="feature-grid">
+          <a href="article.html" class="feature-card">
+            <div class="feature-card__icon" aria-hidden="true">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+            </div>
+            <h3>Getting started</h3>
+            <p>Set up your first project in under five minutes — no credit card required.</p>
+          </a>
+          <a href="article.html" class="feature-card">
+            <div class="feature-card__icon" aria-hidden="true">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2 4 6v6c0 5 3.5 9.5 8 10 4.5-.5 8-5 8-10V6l-8-4z"/></svg>
+            </div>
+            <h3>Authentication</h3>
+            <p>API keys, OAuth 2.0, JWT, and SSO with the providers your team already uses.</p>
+          </a>
+          <a href="article.html" class="feature-card">
+            <div class="feature-card__icon" aria-hidden="true">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+            </div>
+            <h3>Webhooks</h3>
+            <p>Subscribe to events the moment they happen, with retries, signing, and replay.</p>
+          </a>
+          <a href="article.html" class="feature-card">
+            <div class="feature-card__icon" aria-hidden="true">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16v6H4zM4 14h16v6H4z"/><path d="M8 7h.01M8 17h.01"/></svg>
+            </div>
+            <h3>REST API</h3>
+            <p>Every resource, every endpoint, every parameter. With copyable examples in 6 languages.</p>
+          </a>
+          <a href="article.html" class="feature-card">
+            <div class="feature-card__icon" aria-hidden="true">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+            </div>
+            <h3>SDKs &amp; libraries</h3>
+            <p>Official clients for JavaScript, Python, Go, Ruby, PHP, and Java. Community for the rest.</p>
+          </a>
+          <a href="article.html" class="feature-card">
+            <div class="feature-card__icon" aria-hidden="true">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+            </div>
+            <h3>Operations</h3>
+            <p>Rate limits, pagination, idempotency, observability, and the boring stuff done right.</p>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section style="padding: 0 1.5rem;">
+      <div class="stats">
+        <div><div class="stat__num">99.99%</div><div class="stat__label">API uptime, last 12 months</div></div>
+        <div><div class="stat__num">180ms</div><div class="stat__label">Median p99 response time</div></div>
+        <div><div class="stat__num">12k+</div><div class="stat__label">Teams shipping with Lumen</div></div>
+        <div><div class="stat__num">14</div><div class="stat__label">Global regions, active-active</div></div>
+      </div>
+    </section>
+
+    <section class="cta-banner">
+      <div>
+        <h3 class="cta-banner__title">Ready to start building?</h3>
+        <p class="cta-banner__sub">Spin up a free workspace, send your first request in 60 seconds, no card required.</p>
+      </div>
+      <div class="cta-banner__actions">
+        <a href="#" class="btn btn--solid-light">Create free workspace</a>
+        <a href="#" class="btn btn--outline-light">Talk to sales</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="site-footer__grid">
+      <div class="site-footer__brand">
+        <a href="index.html" class="topnav__logo">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <circle cx="12" cy="12" r="10" fill="url(#lumen-mark)"/>
+            <circle cx="12" cy="12" r="3.5" fill="#fff" opacity=".95"/>
+          </svg>
+          <span class="topnav__brand">Lumen</span>
+        </a>
+        <p>Documentation platform for teams that ship. Built with care, served fast, written for humans.</p>
+      </div>
+      <div>
+        <h4>Product</h4>
+        <ul>
+          <li><a href="docs.html">Docs</a></li>
+          <li><a href="#">API reference</a></li>
+          <li><a href="#">Pricing</a></li>
+          <li><a href="#">Changelog</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Resources</h4>
+        <ul>
+          <li><a href="#">Guides</a></li>
+          <li><a href="#">Tutorials</a></li>
+          <li><a href="#">Blog</a></li>
+          <li><a href="#">Status</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Company</h4>
+        <ul>
+          <li><a href="#">About</a></li>
+          <li><a href="#">Careers</a></li>
+          <li><a href="#">Customers</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="#">Privacy</a></li>
+          <li><a href="#">Terms</a></li>
+          <li><a href="#">Security</a></li>
+          <li><a href="#">DPA</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="site-footer__bottom">
+      <span>© 2026 Lumen, Inc. All rights reserved.</span>
+      <span>Made for builders.</span>
+    </div>
+  </footer>
+
+  <div class="sidebar-backdrop" data-sidebar-close></div>
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

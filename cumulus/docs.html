@@ -1,0 +1,259 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Cloud Quotas documentation — Cumulus</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/style.css" />
+</head>
+<body>
+  <a class="sr-only" href="#main">Skip to content</a>
+
+  <div class="utilitybar">
+    <div class="utilitybar__inner">
+      <a href="index.html" class="utilitybar__brand">
+        <span class="b-c">C</span><span class="b-o">u</span><span class="b-m">m</span><span class="b-u">u</span><span class="b-l">l</span><span class="b-u2">u</span><span class="b-s">s</span>
+      </a>
+      <button type="button" class="mobile-menu-toggle" data-sidebar-toggle aria-label="Open menu" aria-expanded="false">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+      </button>
+      <nav class="utilitybar__nav">
+        <a href="#" class="is-active">Technology areas <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg></a>
+        <a href="#">Cross-product tools <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg></a>
+      </nav>
+      <div class="utilitybar__right">
+        <button type="button" class="mobile-search-btn" data-search-trigger aria-label="Search documentation">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
+        </button>
+        <div class="utilitybar__search" data-search-trigger role="search">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
+          <input type="search" placeholder="Search" />
+          <kbd>/</kbd>
+        </div>
+        <button type="button" class="utilitybar__icon-btn" aria-label="Open Cloud Shell"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="4 17 10 11 4 5"/><line x1="12" y1="19" x2="20" y2="19"/></svg><span>Shell</span></button>
+        <button type="button" class="utilitybar__icon-btn" aria-label="Change language" disabled><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15 15 0 0 1 0 20M12 2a15 15 0 0 0 0 20"/></svg><span>English</span></button>
+        <a href="#" class="utilitybar__icon-btn"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 3v18M3 9h18"/></svg><span>Console</span></a>
+        <button class="theme-toggle" aria-label="Toggle dark mode" data-theme-toggle>
+          <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+          <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        </button>
+        <span class="utilitybar__avatar"></span>
+      </div>
+    </div>
+  </div>
+
+  <div class="page-header">
+    <div class="page-header__inner">
+      <div class="page-header__row">
+        <a href="index.html" class="page-header__home">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2zM22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+          Documentation
+          <span class="page-header__sep">›</span>
+        </a>
+        <span class="page-header__crumb">Cloud Quotas</span>
+        <div class="page-header__cta"><a href="#" class="btn btn--primary">Start free</a></div>
+      </div>
+      <nav class="page-header__tabs" aria-label="Sections">
+        <a href="#" class="is-active">Overview</a>
+        <a href="#">Guides</a>
+        <a href="#">Reference</a>
+        <a href="#">Resources</a>
+      </nav>
+    </div>
+  </div>
+
+  <div class="layout">
+    <aside class="side" id="doc-sidebar" aria-label="Documentation navigation">
+      <div class="side__filter">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"/></svg>
+        <span>Filter</span>
+      </div>
+
+      <ul style="list-style:none;padding:0 16px 16px;margin:0;">
+        <li style="margin:4px 0;"><a href="#" style="color:var(--c-text-soft);font-size:14px;">Recent product release notes</a></li>
+        <li style="margin:4px 0;"><a href="#" style="color:var(--c-text-soft);font-size:14px;">Cumulus Customer Care</a></li>
+      </ul>
+
+      <details class="side__group" open>
+        <summary>Cross-product tools</summary>
+        <ul>
+          <li><a href="#">Access and resource management</a></li>
+          <li><a href="#">Costs and usage management</a></li>
+          <li><a href="#">Monitor and optimize costs</a></li>
+          <li><a href="#" class="is-active">Manage resources and usage</a></li>
+          <li><a href="#">Sustainability</a></li>
+          <li><a href="#">Cumulus SDK, languages, frameworks, and tools</a></li>
+          <li><a href="#">Infrastructure as code</a></li>
+        </ul>
+      </details>
+
+      <details class="side__group">
+        <summary>AI and ML</summary>
+        <ul>
+          <li><a href="#">Vertex AI</a></li>
+          <li><a href="#">AutoML</a></li>
+        </ul>
+      </details>
+
+      <details class="side__group">
+        <summary>Application development</summary>
+        <ul>
+          <li><a href="#">App Engine</a></li>
+          <li><a href="#">Buildpacks</a></li>
+        </ul>
+      </details>
+
+      <details class="side__group">
+        <summary>Application hosting</summary>
+        <ul>
+          <li><a href="#">Cloud Run</a></li>
+          <li><a href="#">Functions</a></li>
+        </ul>
+      </details>
+
+      <details class="side__group">
+        <summary>Compute</summary>
+        <ul>
+          <li><a href="#">Compute Engine</a></li>
+          <li><a href="#">Migrate to Virtual Machines</a></li>
+        </ul>
+      </details>
+    </aside>
+
+    <main class="main" id="main">
+      <div class="product-hero">
+        <div>
+          <h1 class="product-hero__title">Cloud Quotas documentation</h1>
+          <a href="article.html" class="btn btn--primary">Read product documentation</a>
+        </div>
+        <div class="product-hero__art" aria-hidden="true"></div>
+      </div>
+
+      <p style="font-size: 18px; line-height: 1.6; color: var(--c-text-soft); max-width: 800px;">
+        Cloud Quotas enables customers to manage quotas for all of their Cumulus services. With Cloud Quotas, users are able to easily monitor quota usage, create and modify quota alerts, and request limit adjustments for quotas. Quotas are managed through the Cloud Quotas dashboard or the Cloud Quotas API. <a href="#">Learn more</a>.
+      </p>
+
+      <div class="promo">
+        <div class="promo__body">
+          <h2 class="promo__title">Start your proof of concept with $300 in free credit</h2>
+          <ul class="promo__list">
+            <li>Develop with our latest Generative AI models and tools.</li>
+            <li>Get free usage of 20+ popular products, including Compute Engine and AI APIs.</li>
+            <li>No automatic charges, no commitment.</li>
+          </ul>
+        </div>
+        <a href="#" class="btn btn--primary">Get started for free</a>
+      </div>
+
+      <section class="resources">
+        <h2>Documentation resources</h2>
+        <p class="resources__sub">Find quickstarts and guides, review key references, and get help with common issues.</p>
+        <div class="resource-grid">
+          <div class="resource-card">
+            <div class="resource-card__icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><circle cx="4" cy="6" r="1"/><circle cx="4" cy="12" r="1"/><circle cx="4" cy="18" r="1"/></svg>
+            </div>
+            <h3>Guides</h3>
+            <ul>
+              <li><a href="article.html">Overview</a></li>
+              <li><a href="article.html">View and manage quotas</a></li>
+              <li><a href="article.html">Predefined roles and permissions</a></li>
+            </ul>
+          </div>
+          <div class="resource-card">
+            <div class="resource-card__icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
+            </div>
+            <h3>Reference</h3>
+            <ul>
+              <li><a href="article.html">REST API</a></li>
+              <li><a href="article.html">Client libraries</a></li>
+            </ul>
+          </div>
+          <div class="resource-card">
+            <div class="resource-card__icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
+            </div>
+            <h3>Resources</h3>
+            <ul>
+              <li><a href="article.html">Release notes</a></li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <div class="helpful">
+        <div class="helpful__label">Was this helpful?</div>
+        <div class="helpful__actions">
+          <button class="helpful__btn" aria-label="Yes">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 10v12M15 5.88L14 10h5.83a2 2 0 0 1 1.92 2.56l-2.33 8A2 2 0 0 1 17.5 22H7L7 10l4.34-9.66a1 1 0 0 1 1.84 0L15 5.88z"/></svg>
+          </button>
+          <button class="helpful__btn" aria-label="No">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 14V2M9 18.12L10 14H4.17a2 2 0 0 1-1.92-2.56l2.33-8A2 2 0 0 1 6.5 2H17l0 12-4.34 9.66a1 1 0 0 1-1.84 0L9 18.12z"/></svg>
+          </button>
+        </div>
+      </div>
+
+      <div class="legal">
+        <p>Except as otherwise noted, the content of this page is licensed under the <a href="#">Creative Commons Attribution 4.0 License</a>, and code samples are licensed under the <a href="#">Apache 2.0 License</a>. For details, see the <a href="#">Cumulus Developers Site Policies</a>. Java is a registered trademark of Oracle and/or its affiliates.</p>
+        <p>Last updated 2026-06-03 UTC.</p>
+      </div>
+    </main>
+  </div>
+
+  <footer class="site-footer">
+    <div class="site-footer__grid">
+      <div class="site-footer__col">
+        <h4>Products &amp; pricing</h4>
+        <ul>
+          <li><a href="#">See all products</a></li>
+          <li><a href="#">Cumulus pricing</a></li>
+          <li><a href="#">Cumulus Marketplace</a></li>
+          <li><a href="#">Contact sales</a></li>
+        </ul>
+      </div>
+      <div class="site-footer__col">
+        <h4>Support</h4>
+        <ul>
+          <li><a href="#">Community forums</a></li>
+          <li><a href="#">Support</a></li>
+          <li><a href="#">Release notes</a></li>
+          <li><a href="#">System status</a></li>
+        </ul>
+      </div>
+      <div class="site-footer__col">
+        <h4>Resources</h4>
+        <ul>
+          <li><a href="#">GitHub</a></li>
+          <li><a href="#">Getting started</a></li>
+          <li><a href="#">Code samples</a></li>
+          <li><a href="#">Architecture Center</a></li>
+          <li><a href="#">Training &amp; Certification</a></li>
+        </ul>
+      </div>
+      <div class="site-footer__col">
+        <h4>Engage</h4>
+        <ul>
+          <li><a href="#">Blog</a></li>
+          <li><a href="#">Events</a></li>
+          <li><a href="#">X (Twitter)</a></li>
+          <li><a href="#">YouTube</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="site-footer__bottom">
+      <span>About Cumulus · Privacy · Site terms · Cumulus terms</span>
+      <div class="newsletter">
+        <span>Sign up for the Cumulus newsletter</span>
+        <a href="#" class="btn btn--primary">Subscribe</a>
+      </div>
+    </div>
+  </footer>
+
+  <div class="sidebar-backdrop" data-sidebar-close></div>
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

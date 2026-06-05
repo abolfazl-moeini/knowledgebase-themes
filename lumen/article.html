@@ -1,0 +1,276 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Authentication — Lumen Docs</title>
+  <meta name="description" content="How to authenticate with the Lumen API: API keys, OAuth 2.0, JWT, and SSO." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/style.css" />
+</head>
+<body>
+  <a class="sr-only" href="#main">Skip to content</a>
+
+  <header class="topnav">
+    <div class="topnav__inner">
+      <a href="index.html" class="topnav__logo">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <defs>
+            <linearGradient id="lumen-mark" x1="0" y1="0" x2="24" y2="24">
+              <stop offset="0" stop-color="#4F46E5"/>
+              <stop offset="1" stop-color="#7C3AED"/>
+            </linearGradient>
+          </defs>
+          <circle cx="12" cy="12" r="10" fill="url(#lumen-mark)"/>
+          <circle cx="12" cy="12" r="3.5" fill="#fff" opacity=".95"/>
+        </svg>
+        <span class="topnav__brand">Lumen</span>
+      </a>
+      <button type="button" class="mobile-menu-toggle" data-sidebar-toggle aria-label="Open menu" aria-expanded="false">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+      </button>
+      <nav class="topnav__links" aria-label="Primary">
+        <a href="docs.html" class="is-active">Docs</a>
+        <a href="#">API</a>
+        <a href="#">Changelog</a>
+        <a href="#">Blog</a>
+        <a href="#">Community</a>
+      </nav>
+      <div class="topnav__actions">
+        <button type="button" class="mobile-search-btn" data-search-trigger aria-label="Search documentation">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
+        </button>
+        <button class="search-trigger" data-search-trigger aria-label="Search docs">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
+          <span>Search docs</span>
+          <kbd>⌘K</kbd>
+        </button>
+        <button class="theme-toggle" aria-label="Toggle dark mode" data-theme-toggle>
+          <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+          <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        </button>
+        <a href="#" class="btn btn--ghost btn--sm">Sign in</a>
+        <a href="#" class="btn btn--primary btn--sm">Get started</a>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+    <div class="article-layout">
+      <aside class="article-side" id="doc-sidebar" aria-label="Documentation navigation">
+        <div class="article-side__group">
+          <h4>Getting started</h4>
+          <ul>
+            <li><a href="article.html">Introduction</a></li>
+            <li><a href="article.html">Quickstart</a></li>
+            <li><a href="article.html">Architecture</a></li>
+          </ul>
+        </div>
+        <div class="article-side__group">
+          <h4>Guides</h4>
+          <ul>
+            <li><a href="article.html" class="is-active">Authentication</a></li>
+            <li><a href="article.html">Webhooks</a></li>
+            <li><a href="article.html">Pagination</a></li>
+            <li><a href="article.html">Error handling</a></li>
+            <li><a href="article.html">Idempotency <span class="new-badge">New</span></a></li>
+          </ul>
+        </div>
+        <div class="article-side__group">
+          <h4>API Reference</h4>
+          <ul>
+            <li><a href="article.html">Resources</a></li>
+            <li><a href="article.html">Endpoints</a></li>
+            <li><a href="article.html">Schemas</a></li>
+            <li><a href="article.html">Errors</a></li>
+          </ul>
+        </div>
+        <div class="article-side__group">
+          <h4>Operations</h4>
+          <ul>
+            <li><a href="article.html">Rate limits</a></li>
+            <li><a href="article.html">Observability</a></li>
+            <li><a href="article.html">Compliance</a></li>
+          </ul>
+        </div>
+      </aside>
+
+      <article class="article-main">
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+          <ol>
+            <li><a href="docs.html">Docs</a></li>
+            <li><a href="docs.html">Guides</a></li>
+            <li aria-current="page">Authentication</li>
+          </ol>
+        </nav>
+
+        <header class="article-header">
+          <h1>Authentication</h1>
+          <p style="font-size: 1.125rem; color: var(--c-text-soft); margin-bottom: 1rem;">Choose the right authentication method for your integration — from quick scripts to enterprise SSO.</p>
+          <div class="article-header__meta">
+            <span>15 min read</span>
+            <span class="article-header__meta-dot"></span>
+            <span>Updated 3 days ago</span>
+            <span class="article-header__meta-dot"></span>
+            <a href="#">Edit on GitHub</a>
+          </div>
+        </header>
+
+        <div class="prose">
+          <p>Lumen supports four authentication strategies. Pick the one that fits your use case — they can be combined within a single workspace, with per-key scopes and rate limits.</p>
+
+          <div class="callout callout--note">
+            <span class="callout__icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
+            </span>
+            <div class="callout__body">
+              <p class="callout__title">Pick the smallest scope that works</p>
+              <p>Never use a master key in client-side code or shared scripts. Create a scoped key per integration and rotate it on a schedule.</p>
+            </div>
+          </div>
+
+          <h2 id="api-keys">API keys</h2>
+          <p>The fastest path. Generate a key in the dashboard, send it as a bearer token, and you're authenticated. Best for server-to-server and CI jobs.</p>
+          <div class="codeblock">
+            <div class="codeblock__header">
+              <span class="codeblock__header-lang">cURL</span>
+              <button class="codeblock__copy">Copy</button>
+            </div>
+            <pre><code>curl https://api.lumen.dev/v1/projects \
+  -H "Authorization: Bearer sk_live_your_api_key_here" \
+  -H "Content-Type: application/json"</code></pre>
+          </div>
+          <p>Keys are prefixed so you can spot them in logs: <code>sk_live_…</code> for production, <code>sk_test_…</code> for the sandbox. The two prefixes are never interchangeable, which keeps test data isolated even by accident.</p>
+
+          <h3>Rotating keys</h3>
+          <p>You can have up to 10 active keys per workspace. To rotate without downtime, create the new key first, deploy code that uses both, then revoke the old one. Lumen supports a brief overlap window of 24 hours during which both keys resolve to the same principal.</p>
+
+          <h2 id="oauth">OAuth 2.0</h2>
+          <p>When you need to act <em>on behalf of a user</em> — for example, building a third-party app that connects to a user's Lumen workspace — use OAuth 2.0 with PKCE. We support the authorization code flow and the device flow for input-constrained clients.</p>
+          <div class="codeblock">
+            <div class="codeblock__header">
+              <span class="codeblock__header-lang">JavaScript</span>
+              <button class="codeblock__copy">Copy</button>
+            </div>
+            <pre><code>const token = await lumen.oauth.exchange({
+  grant_type: 'authorization_code',
+  code: 'auth_code_here',
+  redirect_uri: 'https://yourapp.com/callback',
+  code_verifier: storedVerifier,
+});
+
+console.log(token.access_token);
+// → "ya29.a0AfH6SMB..."</code></pre>
+          </div>
+
+          <h3 id="required-scopes">Required scopes</h3>
+          <p>Request only the scopes you need. The user will see exactly which permissions your app is asking for. You can request additional scopes later via the incremental authorization flow — no need to re-consent to everything.</p>
+
+          <div class="table-wrap"><table>
+            <thead>
+              <tr><th scope="col">Scope</th><th scope="col">Allows</th></tr>
+            </thead>
+            <tbody>
+              <tr><td><code>read:projects</code></td><td>List and read project metadata</td></tr>
+              <tr><td><code>write:projects</code></td><td>Create, update, archive projects</td></tr>
+              <tr><td><code>read:events</code></td><td>Subscribe to webhook topics</td></tr>
+              <tr><td><code>manage:team</code></td><td>Invite users, change roles</td></tr>
+            </tbody>
+          </table></div>
+
+          <h2 id="jwt">Service accounts with JWT</h2>
+          <p>For long-lived server workloads that need to assume a specific identity — scheduled jobs, event-driven workers, data pipelines — issue a short-lived JWT signed with a service account's private key. Tokens are valid for up to 1 hour and refresh automatically.</p>
+
+          <div class="callout callout--warn">
+            <span class="callout__icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><path d="M12 9v4M12 17h.01"/></svg>
+            </span>
+            <div class="callout__body">
+              <p class="callout__title">Keep your private key out of the repo</p>
+              <p>Load the signing key from your secrets manager at boot. If a private key is ever committed, revoke the service account immediately — Lumen will detect and alert on any new JWTs signed with the leaked key.</p>
+            </div>
+          </div>
+
+          <h2 id="sso">Single sign-on (SSO)</h2>
+          <p>Enterprise workspaces can enforce SSO with any SAML 2.0 or OIDC provider — Okta, Azure AD, Google Workspace, OneLogin, and others. When SSO is enforced, personal API keys and passwords are disabled for the workspace.</p>
+          <p>Configuration lives in <strong>Workspace settings → Authentication → SSO</strong>. You'll need workspace admin permissions to make changes. After enabling, the first 24 hours are a soft-enforcement window where users can still fall back to other methods — useful for migration.</p>
+
+          <h3 id="jit-provisioning">Just-in-time provisioning</h3>
+          <p>Pair SSO with SCIM to provision users automatically. New users appear in your workspace the first time they sign in. Roles are mapped from your IdP's group membership.</p>
+
+          <h2 id="best-practices">Best practices</h2>
+          <ul>
+            <li><strong>Use the smallest scope.</strong> Read-only keys for analytics, write keys for automation, admin keys only for break-glass.</li>
+            <li><strong>Rotate on a schedule.</strong> Every 90 days for human-owned keys, every 30 days for CI keys.</li>
+            <li><strong>Audit regularly.</strong> The <a href="#">Key activity</a> view shows every call a key has made in the last 90 days.</li>
+            <li><strong>Never put a key in client code.</strong> Use a server-side proxy for browser or mobile apps — call it from your backend, not from the user.</li>
+            <li><strong>Fail closed on expiry.</strong> Treat 401 as a hard stop, not a retry. A token that has expired should never be silently refreshed in a hot loop.</li>
+          </ul>
+
+          <div class="callout callout--tip">
+            <span class="callout__icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18h6M10 22h4M12 2a7 7 0 0 0-4 12.7c.5.4 1 1 1 2v.3h6v-.3c0-1 .5-1.6 1-2A7 7 0 0 0 12 2z"/></svg>
+            </span>
+            <div class="callout__body">
+              <p class="callout__title">Test with the sandbox</p>
+              <p>Use <code>sk_test_…</code> keys against <code>https://api.sandbox.lumen.dev</code> to test your integration without touching production data. The sandbox is reset nightly and isolated from your live workspace.</p>
+            </div>
+          </div>
+
+          <h2 id="troubleshooting">Troubleshooting</h2>
+          <p>Most auth failures fall into three buckets:</p>
+          <ol>
+            <li><strong>401 Unauthorized</strong> — the token is missing, malformed, or revoked. Double-check the prefix, the workspace, and the rotation status.</li>
+            <li><strong>403 Forbidden</strong> — the token is valid but doesn't have the scope for this resource. Request an upgraded key or expand the OAuth grant.</li>
+            <li><strong>429 Too Many Requests</strong> — you're being rate-limited. Back off, respect the <code>Retry-After</code> header, and consider a token bucket on your side.</li>
+          </ol>
+          <p>For anything else, the <a href="#">Auth debug endpoint</a> returns a structured trace of the failed request — useful for support tickets.</p>
+        </div>
+
+        <nav class="article-footnav" aria-label="Page navigation">
+          <a href="article.html">
+            <span class="article-footnav__label">← Previous</span>
+            <span class="article-footnav__title">Quickstart</span>
+          </a>
+          <a href="article.html" class="next">
+            <span class="article-footnav__label">Next →</span>
+            <span class="article-footnav__title">Webhooks</span>
+          </a>
+        </nav>
+      </article>
+
+      <aside class="toc" aria-label="On this page">
+        <h4>On this page</h4>
+        <ul>
+          <li><a href="#api-keys">API keys</a></li>
+          <li><a href="#oauth">OAuth 2.0</a>
+            <ul class="toc-sub">
+              <li><a href="#required-scopes">Required scopes</a></li>
+            </ul>
+          </li>
+          <li><a href="#jwt">Service accounts with JWT</a></li>
+          <li><a href="#sso">Single sign-on (SSO)</a>
+            <ul class="toc-sub">
+              <li><a href="#jit-provisioning">Just-in-time provisioning</a></li>
+            </ul>
+          </li>
+          <li><a href="#best-practices">Best practices</a></li>
+          <li><a href="#troubleshooting">Troubleshooting</a></li>
+        </ul>
+      </aside>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="site-footer__bottom">
+      <span>© 2026 Lumen, Inc. All rights reserved.</span>
+      <a href="docs.html">Back to docs</a>
+    </div>
+  </footer>
+
+  <div class="sidebar-backdrop" data-sidebar-close></div>
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

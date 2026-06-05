@@ -1,0 +1,193 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Authentication — Reef Docs</title>
+  <meta name="description" content="How to authenticate with the Reef API: API keys, OAuth 2.0, JWT, and SSO." />
+  <link rel="stylesheet" href="assets/css/style.css" />
+</head>
+<body>
+  <a class="sr-only" href="#main">Skip to content</a>
+
+  <header class="topnav">
+    <div class="topnav__inner">
+      <a href="index.html" class="topnav__brand">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none"><path d="M3 12c0-5 4-9 9-9s9 4 9 9c0 3-2 5-4 5h-3l-1 4-1-4H7c-2 0-4-2-4-5z" stroke="currentColor" stroke-width="2"/></svg>
+        <span>Reef</span>
+      </a>
+      <button type="button" class="mobile-menu-toggle" data-sidebar-toggle aria-label="Open menu" aria-expanded="false">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+      </button>
+      <button type="button" class="topnav__lang" aria-label="Change language" disabled>English <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg></button>
+      <nav class="topnav__nav" aria-label="Primary">
+        <a href="docs.html" class="is-active">Documentation</a>
+        <a href="docs.html">Guides</a>
+        <a href="#">API reference</a>
+        <a href="#">Changelog</a>
+      </nav>
+      <div class="topnav__right">
+        <button type="button" class="mobile-search-btn" data-search-trigger aria-label="Search documentation">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
+        </button>
+        <div class="topnav__search" data-search-trigger role="search">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
+          <input type="search" placeholder="Search…" />
+          <kbd>⌘K</kbd>
+        </div>
+        <button type="button" class="topnav__pill" disabled>Ask AI <kbd>⌘I</kbd></button>
+        <a href="#" class="topnav__pill">Talk to us</a>
+        <a href="#" class="topnav__cta">Get started</a>
+        <button class="theme-toggle" aria-label="Toggle light mode" data-theme-toggle>
+          <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+          <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <div class="layout">
+    <aside class="side" id="doc-sidebar" aria-label="Documentation navigation">
+      <div class="side__group">
+        <div class="side__group-label"><svg class="ico" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m4 17 6-6-4-4M12 19h8"/></svg> Get Started</div>
+        <a class="side__item" href="article.html">Introduction</a>
+        <a class="side__item" href="article.html">Quickstart</a>
+        <a class="side__item" href="article.html">CLI</a>
+        <a class="side__item" href="article.html">AI-native</a>
+      </div>
+      <div class="side__group">
+        <div class="side__group-label"><svg class="ico" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg> Guides</div>
+        <a class="side__item is-active" href="article.html">Authentication</a>
+        <a class="side__item" href="article.html">Webhooks</a>
+        <a class="side__item" href="article.html">Pagination</a>
+        <a class="side__item" href="article.html">Error handling</a>
+        <a class="side__item" href="article.html">Idempotency <span class="badge badge--new">New</span></a>
+      </div>
+      <div class="side__group">
+        <div class="side__group-label"><svg class="ico" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg> API Reference</div>
+        <a class="side__item" href="article.html">Resources</a>
+        <a class="side__item" href="article.html">Endpoints</a>
+        <a class="side__item" href="article.html">Schemas</a>
+        <a class="side__item" href="article.html">Errors</a>
+      </div>
+      <div class="side__group">
+        <div class="side__group-label"><svg class="ico" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg> Operations</div>
+        <a class="side__item" href="article.html">Rate limits</a>
+        <a class="side__item" href="article.html">Observability</a>
+        <a class="side__item" href="article.html">Compliance</a>
+      </div>
+    </aside>
+
+    <main id="main">
+      <div class="article-main">
+        <div class="article-layout">
+          <nav class="breadcrumb">
+            <a href="docs.html">Docs</a>
+            <span class="sep">›</span>
+            <a href="docs.html">Guides</a>
+            <span class="sep">›</span>
+            <span>Authentication</span>
+          </nav>
+
+          <header class="article-header">
+            <h1>Authentication</h1>
+            <p class="article-header__sub">Choose the right authentication method for your integration — from quick scripts to enterprise SSO.</p>
+          </header>
+
+          <div class="prose">
+            <p>Reef supports four authentication strategies. Pick the one that fits your use case — they can be combined within a single workspace, with per-key scopes and rate limits.</p>
+
+            <div class="callout callout--tip">
+              <div class="callout__label">// tip</div>
+              <p><strong>Pick the smallest scope that works.</strong> Never use a master key in client-side code or shared scripts. Create a scoped key per integration and rotate it on a schedule.</p>
+            </div>
+
+            <h2 id="api-keys">API keys</h2>
+            <p>The fastest path. Generate a key in the dashboard, send it as a bearer token, and you're authenticated. Best for server-to-server and CI jobs.</p>
+            <pre><code>curl https://api.reef.dev/v1/projects \
+  -H "Authorization: Bearer sk_live_your_api_key_here" \
+  -H "Content-Type: application/json"</code></pre>
+            <p>Keys are prefixed so you can spot them in logs: <code>sk_live_…</code> for production, <code>sk_test_…</code> for the sandbox. The two prefixes are never interchangeable, which keeps test data isolated even by accident.</p>
+
+            <h3>Rotating keys</h3>
+            <p>You can have up to 10 active keys per workspace. To rotate without downtime, create the new key first, deploy code that uses both, then revoke the old one. Reef supports a 24-hour overlap window during which both keys resolve to the same principal.</p>
+
+            <h2 id="oauth">OAuth 2.0</h2>
+            <p>When you need to act <em>on behalf of a user</em> — for example, building a third-party app that connects to a user's Reef workspace — use OAuth 2.0 with PKCE. We support the authorization code flow and the device flow for input-constrained clients.</p>
+            <pre><code>const token = await reef.oauth.exchange({
+  grant_type: 'authorization_code',
+  code: 'auth_code_here',
+  redirect_uri: 'https://yourapp.com/callback',
+  code_verifier: storedVerifier,
+});
+
+console.log(token.access_token);
+// → "ya29.a0AfH6SMB..."</code></pre>
+
+            <h3>Required scopes</h3>
+            <p>Request only the scopes you need. The user will see exactly which permissions your app is asking for. You can request additional scopes later via the incremental authorization flow — no need to re-consent to everything.</p>
+
+            <h2 id="jwt">Service accounts with JWT</h2>
+            <p>For long-lived server workloads that need to assume a specific identity — scheduled jobs, event-driven workers, data pipelines — issue a short-lived JWT signed with a service account's private key. Tokens are valid for up to 1 hour and refresh automatically.</p>
+
+            <div class="callout callout--warn">
+              <div class="callout__label">// warning</div>
+              <p><strong>Keep your private key out of the repo.</strong> Load the signing key from your secrets manager at boot. If a private key is ever committed, revoke the service account immediately — Reef will detect and alert on any new JWTs signed with the leaked key.</p>
+            </div>
+
+            <h2 id="sso">Single sign-on (SSO)</h2>
+            <p>Enterprise workspaces can enforce SSO with any SAML 2.0 or OIDC provider — Okta, Azure AD, Google Workspace, OneLogin, and others. When SSO is enforced, personal API keys and passwords are disabled for the workspace.</p>
+            <p>Configuration lives in <strong>Workspace settings → Authentication → SSO</strong>. You'll need workspace admin permissions to make changes. After enabling, the first 24 hours are a soft-enforcement window where users can still fall back to other methods — useful for migration.</p>
+
+            <h3>Just-in-time provisioning</h3>
+            <p>Pair SSO with SCIM to provision users automatically. New users appear in your workspace the first time they sign in. Roles are mapped from your IdP's group membership.</p>
+
+            <h2 id="best-practices">Best practices</h2>
+            <ul>
+              <li><strong>Use the smallest scope.</strong> Read-only keys for analytics, write keys for automation, admin keys only for break-glass.</li>
+              <li><strong>Rotate on a schedule.</strong> Every 90 days for human-owned keys, every 30 days for CI keys.</li>
+              <li><strong>Audit regularly.</strong> The <a href="#">Key activity</a> view shows every call a key has made in the last 90 days.</li>
+              <li><strong>Never put a key in client code.</strong> Use a server-side proxy for browser or mobile apps.</li>
+              <li><strong>Fail closed on expiry.</strong> Treat 401 as a hard stop, not a retry.</li>
+            </ul>
+
+            <div class="callout callout--note">
+              <div class="callout__label">// note</div>
+              <p>Use <code>sk_test_…</code> keys against <code>https://api.sandbox.reef.dev</code> to test your integration without touching production data. The sandbox is reset nightly and isolated from your live workspace.</p>
+            </div>
+
+            <h2 id="troubleshooting">Troubleshooting</h2>
+            <p>Most auth failures fall into three buckets:</p>
+            <ol>
+              <li><strong>401 Unauthorized</strong> — the token is missing, malformed, or revoked. Double-check the prefix, the workspace, and the rotation status.</li>
+              <li><strong>403 Forbidden</strong> — the token is valid but doesn't have the scope for this resource. Request an upgraded key or expand the OAuth grant.</li>
+              <li><strong>429 Too Many Requests</strong> — you're being rate-limited. Back off, respect the <code>Retry-After</code> header, and consider a token bucket on your side.</li>
+            </ol>
+            <p>For anything else, the <a href="#">Auth debug endpoint</a> returns a structured trace of the failed request.</p>
+
+            <div class="cta-banner">
+              <div class="cta-banner__body">
+                <h3 class="cta-banner__title">Next up: webhooks</h3>
+                <p class="cta-banner__sub">Now that you can authenticate, learn how to subscribe to events the moment they happen.</p>
+              </div>
+              <div class="cta-banner__actions">
+                <a href="article.html" class="btn btn--primary">Webhooks guide</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <footer class="site-footer">
+    <div class="site-footer__bottom">
+      <span>© 2026 Reef, Inc.</span>
+      <span>Made with care</span>
+    </div>
+  </footer>
+
+  <div class="sidebar-backdrop" data-sidebar-close></div>
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,210 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>~/docs — Terminal</title>
+  <meta name="description" content="Terminal is a developer-first documentation theme. Monospace, dense, fast. Built for API and devtools docs." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/style.css" />
+</head>
+<body>
+  <a class="sr-only" href="#main">Skip to content</a>
+
+  <header class="topnav">
+    <div class="topnav__inner">
+      <div class="topnav__crumb">
+        <a href="index.html">~</a><span class="sep">/</span>
+        <a href="index.html" class="is-active">docs</a>
+      </div>
+      <button type="button" class="mobile-menu-toggle" data-sidebar-toggle aria-label="Open menu" aria-expanded="false">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+      </button>
+      <nav class="topnav__nav" aria-label="Primary">
+        <a href="docs.html">index</a>
+        <a href="#">api</a>
+        <a href="#">cli</a>
+        <a href="#">changelog</a>
+        <a href="#">github</a>
+      </nav>
+      <div class="topnav__right">
+        <button type="button" class="mobile-search-btn" data-search-trigger aria-label="Search documentation">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
+        </button>
+        <div class="topnav__search" role="search">
+          <span class="prompt">$</span>
+          <input type="search" placeholder="search docs..." aria-label="Search" />
+          <button type="button" class="topnav__search-cmdk" data-search-trigger aria-label="Open command palette">
+            <kbd>⌘K</kbd>
+          </button>
+        </div>
+        <div class="topnav__status">
+          <span class="topnav__status-dot">build: passing</span>
+          <span>v2.4.0</span>
+        </div>
+        <button class="theme-toggle" aria-label="Toggle light mode" data-theme-toggle>
+          <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+          <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero">
+      <div class="hero__inner">
+        <div class="hero__prompt"><span class="arrow">$</span> cat ~/docs/README.md</div>
+        <pre class="hero__ascii">
+   ╔══════════════════════════════════════════════════════════╗
+   ║  ┌─┐ ┌┬┐ ┬ ┬ ┌─┐ ┌─┐ ┌┐┌   ┌┬┐ ┌─┐ ┌─┐ ┌┬┐ ┌─┐ ┬─┐ ┌─┐    ║
+   ║  ├┤  │ ├─┤ │ │ │ │ │││    │││ │ │ │ │ │││ │ │ ├┬┘ │ │    ║
+   ║  └─┘ ┴ ┴ ┴ ┴─┘ └─┘ ┘└┘   ─┴┘ └─┘ └─┘ ┴ ┴ └─┘ ┴└─ └─┘    ║
+   ║                                                          ║
+   ║  developer documentation · v2.4.0 · stable                ║
+   ╚══════════════════════════════════════════════════════════╝</pre>
+        <h1 class="hero__title">~/docs <span class="accent">—</span> read the source, luke</h1>
+        <p class="hero__sub">A monospace-first, terminal-flavored documentation theme for API products, devtools, and infrastructure docs. Designed to be read in a code editor and rendered on the web. <span class="comment"># built for hackers, by hackers</span></p>
+        <div class="hero__cta">
+          <a href="article.html" class="btn btn--primary">→ Quickstart</a>
+          <a href="docs.html" class="btn btn--outline">Browse the index</a>
+          <a href="#" class="btn btn--ghost">★ Star on GitHub</a>
+        </div>
+        <div class="hero__quicklinks">
+          <span class="hero__quicklinks-label">// common:</span>
+          <a href="article.html">authentication</a>·
+          <a href="article.html">webhooks</a>·
+          <a href="article.html">rate-limits</a>·
+          <a href="article.html">errors</a>·
+          <a href="article.html">cli</a>·
+          <a href="article.html">sdks</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="modules">
+      <div class="container">
+        <div class="section-header">
+          <h2>$ ls /docs</h2>
+          <span class="meta">9 modules · 247 pages · last sync 2 min ago</span>
+        </div>
+        <div class="module-grid">
+          <a href="article.html" class="module-card">
+            <div class="module-card__path"><span class="dir">/docs/</span><span class="file">01.getting-started.md</span></div>
+            <div class="module-card__name">getting-started</div>
+            <p class="module-card__desc">From zero to first request in five minutes. Includes the cURL, the SDK, and the CLI.</p>
+            <div class="module-card__meta"><span class="tag">essential</span><span>5 min</span></div>
+          </a>
+          <a href="article.html" class="module-card">
+            <div class="module-card__path"><span class="dir">/docs/</span><span class="file">02.authentication.md</span></div>
+            <div class="module-card__name">authentication</div>
+            <p class="module-card__desc">API keys, OAuth 2.0, JWT service accounts, and enterprise SSO. The four strategies, compared.</p>
+            <div class="module-card__meta"><span class="tag">essential</span><span>15 min</span></div>
+          </a>
+          <a href="article.html" class="module-card">
+            <div class="module-card__path"><span class="dir">/docs/</span><span class="file">03.api-reference.md</span></div>
+            <div class="module-card__name">api-reference</div>
+            <p class="module-card__desc">Every endpoint, every parameter, every response shape. Generated from the OpenAPI spec.</p>
+            <div class="module-card__meta"><span class="tag">reference</span><span>~2 hrs</span></div>
+          </a>
+          <a href="article.html" class="module-card">
+            <div class="module-card__path"><span class="dir">/docs/</span><span class="file">04.webhooks.md</span></div>
+            <div class="module-card__name">webhooks</div>
+            <p class="module-card__desc">Signing, retries, replay, idempotency. Build a handler that doesn't lose events.</p>
+            <div class="module-card__meta"><span class="tag">guide</span><span>22 min</span></div>
+          </a>
+          <a href="article.html" class="module-card">
+            <div class="module-card__path"><span class="dir">/docs/</span><span class="file">05.sdks.md</span></div>
+            <div class="module-card__name">sdks-and-cli</div>
+            <p class="module-card__desc">Official clients for JS, Python, Go, Ruby, PHP, Java, and Rust. Plus a bash-friendly CLI.</p>
+            <div class="module-card__meta"><span class="tag">tools</span><span>~30 min</span></div>
+          </a>
+          <a href="article.html" class="module-card">
+            <div class="module-card__path"><span class="dir">/docs/</span><span class="file">06.operations.md</span></div>
+            <div class="module-card__name">operations</div>
+            <p class="module-card__desc">Rate limits, observability, error budgets, and the discipline of running things in production.</p>
+            <div class="module-card__meta"><span class="tag">advanced</span><span>40 min</span></div>
+          </a>
+          <a href="article.html" class="module-card">
+            <div class="module-card__path"><span class="dir">/docs/</span><span class="file">07.integrations.md</span></div>
+            <div class="module-card__name">integrations</div>
+            <p class="module-card__desc">Patterns for connecting to queues, caches, warehouses, and observability stacks.</p>
+            <div class="module-card__meta"><span class="tag">guide</span><span>25 min</span></div>
+          </a>
+          <a href="article.html" class="module-card">
+            <div class="module-card__path"><span class="dir">/docs/</span><span class="file">08.errors.md</span></div>
+            <div class="module-card__name">errors</div>
+            <p class="module-card__desc">The complete catalogue of error codes, with retry guidance and links to the resolution.</p>
+            <div class="module-card__meta"><span class="tag">reference</span><span>~20 min</span></div>
+          </a>
+          <a href="article.html" class="module-card">
+            <div class="module-card__path"><span class="dir">/docs/</span><span class="file">09.changelog.md</span></div>
+            <div class="module-card__name">changelog</div>
+            <p class="module-card__desc">Every release, every breaking change, every deprecation. Updated with every deploy.</p>
+            <div class="module-card__meta"><span class="tag">meta</span><span>updated daily</span></div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <div class="banner">
+      <div class="banner__title">// new in v2.4</div>
+      <p class="banner__text">Just shipped: <code>stream:v2</code> webhook delivery with built-in idempotency windows, plus the new <code>POST /v1/batch</code> endpoint for bulk operations. Migration guide in the <a href="article.html">changelog</a>.</p>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="site-footer__inner">
+      <div>// © 2026 · terminal.dev · MIT licensed · built with <a href="#">caffeine</a></div>
+      <div class="site-footer__links">
+        <a href="#">status</a>
+        <a href="#">github</a>
+        <a href="#">discord</a>
+        <a href="#">rss</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Command palette overlay -->
+  <div class="cmdk" role="dialog" aria-modal="true" aria-label="Command palette" aria-hidden="true">
+    <div class="cmdk__panel">
+      <div class="cmdk__input">
+        <span class="prompt">&gt;</span>
+        <input type="text" placeholder="search docs, jump to a page, run a command..." aria-label="Command" />
+        <kbd>esc</kbd>
+      </div>
+      <div class="cmdk__results">
+        <a href="article.html" class="cmdk__result">
+          <span class="cmdk__result-icon">→</span>
+          <div class="cmdk__result-main"><strong>authentication</strong><span>/docs/02.authentication.md</span></div>
+          <span class="cmdk__result-meta">15 min</span>
+        </a>
+        <a href="article.html" class="cmdk__result">
+          <span class="cmdk__result-icon">→</span>
+          <div class="cmdk__result-main"><strong>webhooks</strong><span>/docs/04.webhooks.md</span></div>
+          <span class="cmdk__result-meta">22 min</span>
+        </a>
+        <a href="article.html" class="cmdk__result">
+          <span class="cmdk__result-icon">→</span>
+          <div class="cmdk__result-main"><strong>POST /v1/batch</strong><span>api-reference · new in 2.4</span></div>
+          <span class="cmdk__result-meta">ref</span>
+        </a>
+        <a href="article.html" class="cmdk__result">
+          <span class="cmdk__result-icon">→</span>
+          <div class="cmdk__result-main"><strong>rate-limits</strong><span>/docs/06.operations.md#rate-limits</span></div>
+          <span class="cmdk__result-meta">8 min</span>
+        </a>
+      </div>
+      <div class="cmdk__hint">
+        <span><kbd>↑↓</kbd> navigate</span>
+        <span><kbd>↵</kbd> open</span>
+        <span><kbd>esc</kbd> close</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="sidebar-backdrop" data-sidebar-close></div>
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

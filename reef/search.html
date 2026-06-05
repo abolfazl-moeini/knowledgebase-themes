@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Search — Reef Docs</title>
+  <link rel="stylesheet" href="assets/css/style.css" />
+</head>
+<body>
+  <a class="sr-only" href="#main">Skip to content</a>
+
+  <header class="topnav">
+    <div class="topnav__inner">
+      <a href="index.html" class="topnav__brand">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none"><path d="M3 12c0-5 4-9 9-9s9 4 9 9c0 3-2 5-4 5h-3l-1 4-1-4H7c-2 0-4-2-4-5z" stroke="currentColor" stroke-width="2"/></svg>
+        <span>Reef</span>
+      </a>
+      <button type="button" class="mobile-menu-toggle" data-sidebar-toggle aria-label="Open menu" aria-expanded="false">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+      </button>
+      <button type="button" class="topnav__lang" aria-label="Change language" disabled>English <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg></button>
+      <nav class="topnav__nav" aria-label="Primary">
+        <a href="docs.html" class="is-active">Documentation</a>
+        <a href="docs.html">Guides</a>
+        <a href="#">API reference</a>
+        <a href="#">Changelog</a>
+      </nav>
+      <div class="topnav__right">
+        <button type="button" class="mobile-search-btn" data-search-trigger aria-label="Search documentation">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
+        </button>
+        <div class="topnav__search" data-search-trigger role="search">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
+          <input type="search" placeholder="Search…" />
+          <kbd>⌘K</kbd>
+        </div>
+        <button type="button" class="topnav__pill" disabled>Ask AI <kbd>⌘I</kbd></button>
+        <a href="#" class="topnav__pill">Talk to us</a>
+        <a href="#" class="topnav__cta">Get started</a>
+        <button class="theme-toggle" aria-label="Toggle light mode" data-theme-toggle>
+          <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+          <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+    <div class="search-page">
+      <h1>Search</h1>
+      <p class="search-page__sub">Search across all of the Reef documentation — guides, references, and tutorials.</p>
+      <div class="search-bar">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
+        <input type="search" value="webhook" aria-label="Search" />
+        <kbd>esc</kbd>
+      </div>
+
+      <p class="search-meta">14 results for <strong>"webhook"</strong> · 0.04s</p>
+
+      <a href="article.html" class="search-result">
+        <div class="search-result__cat">Guides</div>
+        <h3 class="search-result__title">Webhooks: a complete walkthrough</h3>
+        <p class="search-result__excerpt">…<mark>webhook</mark>s are the recommended way to react to events in Reef. This guide covers signing, retries, replay, and the truth about delivery order…</p>
+      </a>
+      <a href="article.html" class="search-result">
+        <div class="search-result__cat">REST API</div>
+        <h3 class="search-result__title">POST /v1/webhooks</h3>
+        <p class="search-result__excerpt">…create a <mark>webhook</mark> subscription. The endpoint requires the <code>write:events</code> scope and accepts a JSON body with a target URL, a list of event topics…</p>
+      </a>
+      <a href="article.html" class="search-result">
+        <div class="search-result__cat">Guides</div>
+        <h3 class="search-result__title">Verifying webhook signatures</h3>
+        <p class="search-result__excerpt">…every <mark>webhook</mark> delivery is signed with an HMAC-SHA256 of the timestamp and the request body. The signature is sent in the <code>Reef-Signature</code> header…</p>
+      </a>
+      <a href="article.html" class="search-result">
+        <div class="search-result__cat">Tutorials</div>
+        <h3 class="search-result__title">Build a real-time notification system with webhooks</h3>
+        <p class="search-result__excerpt">…in this tutorial, you'll wire up a <mark>webhook</mark> endpoint that pushes events into a message queue, with deduplication, retry handling, and end-to-end tracing…</p>
+      </a>
+      <a href="article.html" class="search-result">
+        <div class="search-result__cat">Operations</div>
+        <h3 class="search-result__title">Webhook delivery SLAs and failure modes</h3>
+        <p class="search-result__excerpt">…Reef guarantees at-least-once delivery for <mark>webhook</mark> events. Your endpoint must be idempotent. We'll show you how to detect duplicates and what to do when…</p>
+      </a>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="site-footer__bottom">
+      <span>© 2026 Reef, Inc.</span>
+      <span>Made with care</span>
+    </div>
+  </footer>
+
+  <div class="sidebar-backdrop" data-sidebar-close></div>
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

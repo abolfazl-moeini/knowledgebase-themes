@@ -1,0 +1,198 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Install Cumulus Omni using containers — Cumulus</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/style.css" />
+</head>
+<body>
+  <a class="sr-only" href="#main">Skip to content</a>
+
+  <div class="utilitybar">
+    <div class="utilitybar__inner">
+      <a href="index.html" class="utilitybar__brand">
+        <span class="b-c">C</span><span class="b-o">u</span><span class="b-m">m</span><span class="b-u">u</span><span class="b-l">l</span><span class="b-u2">u</span><span class="b-s">s</span>
+      </a>
+      <button type="button" class="mobile-menu-toggle" data-sidebar-toggle aria-label="Open menu" aria-expanded="false">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+      </button>
+      <nav class="utilitybar__nav">
+        <a href="#" class="is-active">Technology areas <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg></a>
+        <a href="#">Cross-product tools <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg></a>
+      </nav>
+      <div class="utilitybar__right">
+        <button type="button" class="mobile-search-btn" data-search-trigger aria-label="Search documentation">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
+        </button>
+        <div class="utilitybar__search" data-search-trigger role="search">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
+          <input type="search" placeholder="Search" />
+          <kbd>/</kbd>
+        </div>
+        <button type="button" class="utilitybar__icon-btn" aria-label="Open Cloud Shell"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="4 17 10 11 4 5"/><line x1="12" y1="19" x2="20" y2="19"/></svg><span>Shell</span></button>
+        <button type="button" class="utilitybar__icon-btn" aria-label="Change language" disabled><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15 15 0 0 1 0 20M12 2a15 15 0 0 0 0 20"/></svg><span>English</span></button>
+        <a href="#" class="utilitybar__icon-btn"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 3v18M3 9h18"/></svg><span>Console</span></a>
+        <button class="theme-toggle" aria-label="Toggle dark mode" data-theme-toggle>
+          <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+          <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        </button>
+        <span class="utilitybar__avatar"></span>
+      </div>
+    </div>
+  </div>
+
+  <div class="page-header">
+    <div class="page-header__inner">
+      <div class="page-header__row">
+        <a href="index.html" class="page-header__home">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2zM22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+          Documentation
+          <span class="page-header__sep">›</span>
+        </a>
+        <a href="#" class="page-header__crumb" style="color:var(--c-text-soft);text-decoration:none;">Cumulus Omni</a>
+        <span class="page-header__sep">›</span>
+        <span class="page-header__crumb">Using containers</span>
+        <div class="page-header__cta"><a href="#" class="btn btn--primary">Start free</a></div>
+      </div>
+      <nav class="page-header__tabs" aria-label="Sections">
+        <a href="#">Overview</a>
+        <a href="#" class="is-active">Guides</a>
+        <a href="#">Reference</a>
+        <a href="#">Resources</a>
+      </nav>
+    </div>
+  </div>
+
+  <div class="layout">
+    <aside class="side" id="doc-sidebar">
+      <div class="side__filter">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"/></svg>
+        <span>Filter</span>
+      </div>
+      <details class="side__group" open>
+        <summary>Cumulus Omni</summary>
+        <ul>
+          <li><a href="#">Overview</a></li>
+          <li><a href="#">Quickstart</a></li>
+          <li><a href="#" class="is-active">Install using containers</a></li>
+          <li><a href="#">Install on VMs</a></li>
+          <li><a href="#">Configure HA</a></li>
+          <li><a href="#">Backup and restore</a></li>
+          <li><a href="#">Monitor</a></li>
+          <li><a href="#">Troubleshoot</a></li>
+        </ul>
+      </details>
+      <details class="side__group">
+        <summary>Tutorials</summary>
+        <ul>
+          <li><a href="#">Build a REST API</a></li>
+          <li><a href="#">Migrate from Postgres</a></li>
+        </ul>
+      </details>
+    </aside>
+
+    <main class="main" id="main">
+      <nav class="breadcrumb">
+        <a href="index.html">Cumulus Omni</a>
+        <span class="sep">›</span>
+        <a href="#">Guides</a>
+        <span class="sep">›</span>
+        <span class="current">Install using containers</span>
+        <span style="margin-left:auto;color:var(--c-text-faint);">Current (18.1.0)</span>
+      </nav>
+
+      <header class="article-header">
+        <h1>Install Cumulus Omni using containers</h1>
+        <p class="article-header__sub">Run Cumulus Omni as a set of containers on any host with Docker or Podman. This page walks through a single-node installation suitable for evaluation, development, and small production workloads.</p>
+      </header>
+
+      <div class="prose">
+        <p>Cumulus Omni is a distributed, PostgreSQL-compatible database that runs anywhere you can run a container. The container image is published to the official registry and is updated with each release. Omni is intended to be operated like any other stateful workload: with persistent storage, scheduled backups, and a clear upgrade path.</p>
+
+        <h2 id="before">Before you begin</h2>
+        <ul>
+          <li>A Linux host with at least 4 vCPUs, 16 GB of RAM, and 100 GB of free disk.</li>
+          <li>Docker Engine 24+ or Podman 4.4+ installed and running.</li>
+          <li>Root or sudo access on the host.</li>
+          <li>A reserved TCP port range (default 5432, 6432, 8443).</li>
+        </ul>
+
+        <div class="callout callout--note">
+          <div class="callout__title">Try Cumulus Free first</div>
+          <p>If you don't have a host available, the Cumulus Free tier provisions a managed Omni cluster in under a minute, with $300 in credit for new users. <a href="#">Create a free cluster →</a></p>
+        </div>
+
+        <h2 id="step-1">Step 1: Pull the container image</h2>
+        <p>Pull the latest stable image from the Cumulus registry:</p>
+        <pre><code>docker pull registry.cumulus.cloud/omni:18.1.0</code></pre>
+
+        <h2 id="step-2">Step 2: Create a persistent volume</h2>
+        <p>Omni stores its data in <code>/var/lib/omni</code> inside the container. Mount a host volume so the data survives container restarts:</p>
+        <pre><code>docker volume create omni-data</code></pre>
+
+        <h2 id="step-3">Step 3: Start the container</h2>
+        <p>Run the container with the recommended flags. Replace <code>$OMNI_PASSWORD</code> with a strong password of your choice:</p>
+        <pre><code>docker run -d \
+  --name omni \
+  --restart unless-stopped \
+  -p 5432:5432 \
+  -p 6432:6432 \
+  -p 8443:8443 \
+  -v omni-data:/var/lib/omni \
+  -e OMNI_PASSWORD=$OMNI_PASSWORD \
+  registry.cumulus.cloud/omni:18.1.0</code></pre>
+
+        <h2 id="step-4">Step 4: Connect to the cluster</h2>
+        <p>Once the container is healthy (typically 30–60 seconds), connect using the standard <code>psql</code> client:</p>
+        <pre><code>psql -h 127.0.0.1 -p 5432 -U omni -d omni</code></pre>
+        <p>You'll be prompted for the password you set above.</p>
+
+        <div class="callout callout--success">
+          <div class="callout__title">Verify the installation</div>
+          <p>Run <code>SELECT version();</code> to confirm the cluster is reachable. You should see a banner that includes the Cumulus Omni version string.</p>
+        </div>
+
+        <h2 id="next">What's next</h2>
+        <ul>
+          <li><a href="#">Configure high availability</a> — run a multi-node cluster</li>
+          <li><a href="#">Schedule backups</a> — point-in-time recovery to object storage</li>
+          <li><a href="#">Monitor Omni</a> — Prometheus metrics and Grafana dashboards</li>
+        </ul>
+
+        <div class="callout callout--warn">
+          <div class="callout__title">For production</div>
+          <p>The single-node setup on this page is suitable for evaluation and small workloads. For production deployments, use a multi-node cluster, enable TLS, configure scheduled backups, and set up monitoring. See the <a href="#">production checklist</a>.</p>
+        </div>
+      </div>
+
+      <div class="helpful">
+        <div class="helpful__label">Was this helpful?</div>
+        <div class="helpful__actions">
+          <button class="helpful__btn" aria-label="Yes">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 10v12M15 5.88L14 10h5.83a2 2 0 0 1 1.92 2.56l-2.33 8A2 2 0 0 1 17.5 22H7L7 10l4.34-9.66a1 1 0 0 1 1.84 0L15 5.88z"/></svg>
+          </button>
+          <button class="helpful__btn" aria-label="No">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 14V2M9 18.12L10 14H4.17a2 2 0 0 1-1.92-2.56l2.33-8A2 2 0 0 1 6.5 2H17l0 12-4.34 9.66a1 1 0 0 1-1.84 0L9 18.12z"/></svg>
+          </button>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <footer class="site-footer">
+    <div class="site-footer__bottom">
+      <span>About Cumulus · Privacy · Site terms · Cumulus terms</span>
+      <div class="newsletter">
+        <a href="#" class="btn btn--primary">Subscribe</a>
+      </div>
+    </div>
+  </footer>
+
+  <div class="sidebar-backdrop" data-sidebar-close></div>
+  <script src="assets/js/main.js"></script>
+</body>
+</html>
